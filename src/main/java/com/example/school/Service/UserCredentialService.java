@@ -64,7 +64,6 @@ public void login(String email,String password){
         } catch (DataIntegrityViolationException e) {
             throw new ApiException("email already used");
         }
-
     }
 
 }
