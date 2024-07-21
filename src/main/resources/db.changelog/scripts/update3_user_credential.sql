@@ -1,0 +1,2 @@
+ALTER TABLE user_credential
+    ADD COLUMN status BOOLEAN DEFAULT FALSE ;
