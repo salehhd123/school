@@ -2,6 +2,8 @@ package com.example.school.Repository;
 
 import com.example.school.Dto.ExtraDataDto;
 import com.example.school.Model.Teacher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -18,5 +20,5 @@ Teacher findTeacherById(Integer id);
              " from Teacher t join t.courses c")
 List<ExtraDataDto> getAllExtraData();
 
-
+Page<Teacher> findAll(Pageable pageable);
 }

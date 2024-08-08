@@ -75,4 +75,11 @@ public class TeacherController {
         return ResponseEntity.status(200).body(teacherService.getAllByExtra());
     }
 
+    @GetMapping("/page")
+    public ResponseEntity getpage(@RequestParam(value = "pageNo",defaultValue = "0",required = false)int pageNo,
+                                  @RequestParam(value = "pageSize",defaultValue = "10",required = false)int pageSize){
+
+       return ResponseEntity.status(200).body(teacherService.getPag(pageNo, pageSize));
+    }
+
 }

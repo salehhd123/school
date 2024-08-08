@@ -1,6 +1,7 @@
 package com.example.school.Mapper;
 
 
+import com.example.school.Dto.PagDto;
 import com.example.school.Dto.TeacherDto;
 import com.example.school.Model.Teacher;
 import org.mapstruct.Mapper;
@@ -17,4 +18,5 @@ public interface TeacherMapper {
 
     List<TeacherDto> teachersToTeacherDtos(List<Teacher> teachers);
 
+    List<PagDto> teachersToPag(List<Teacher> teachers);
 }

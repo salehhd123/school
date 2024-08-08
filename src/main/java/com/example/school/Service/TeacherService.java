@@ -4,6 +4,7 @@ package com.example.school.Service;
 import com.example.school.API.ApiException;
 import com.example.school.Dto.CourseDto;
 import com.example.school.Dto.ExtraDataDto;
+import com.example.school.Dto.PagDto;
 import com.example.school.Dto.TeacherDto;
 import com.example.school.Mapper.TeacherMapper;
 import com.example.school.Model.Course;
@@ -13,6 +14,9 @@ import com.example.school.Repository.CourseRepository;
 import com.example.school.Repository.TeacherRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -119,8 +123,12 @@ public class TeacherService {
         return teacherRepository.getAllExtraData();
     }
 
-
-
+    public List<PagDto> getPag(int page,int size){
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Teacher> page1 = teacherRepository.findAll(pageable);
+        List<Teacher> teachers = page1.getContent();
+        return teacherMapper.teachersToPag(teachers);
+    }
 
 
 
